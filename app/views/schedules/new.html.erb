@@ -1,0 +1,8 @@
+<h1>Schedules#new</h1>
+<p>Find me in app/views/schedules/new.html.erb</p>
+
+<%= form_for @schedule do |f| %>
+	<%= f.text_field :name %>
+	<%= f.text_field :place %>
+	<%= f.submit 'submit' %>
+<% end %>

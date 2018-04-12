@@ -1,0 +1,19 @@
+<% if (user_signed_in?) %>
+　ログイン中：UserID ＝＞　<%= current_user.id %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<% else %>
+	未ログイン
+<% end %>
+
+
+
+<hr>
+
+<h2>所属チーム</h2>
+	<% @teams.each do |team| %>
+		<%= team.id %>
+	<% end %>
+
+
+
+<%= render 'partial/sitemap' %>

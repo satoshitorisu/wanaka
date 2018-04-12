@@ -1,0 +1,33 @@
+<hr>
+<ul>
+	<li>ユーザー管理</li>
+	<li>
+		<%= link_to 'log in', new_user_session_path %>
+	</li>
+	<li>
+		<%= link_to 'sign in', new_user_registration_path %>
+	</li>
+</ul>
+
+<ul>
+	<li>チーム</li>
+	<li>
+		<%= link_to 'new', new_team_path %>
+	</li>
+	<li>
+		<%= link_to 'join from_leader', team_users_path %>
+	</li>
+	<li>
+		<%= link_to 'join from_member', team_users_path %>
+	</li>
+</ul>
+<ul>
+	<li>スケジュール</li>
+	<li><%= link_to 'index', schedules_path %></li>
+	<li><%= link_to 'new', new_schedule_path %></li>
+</ul>
+
+
+
+
+

@@ -1,0 +1,19 @@
+<h1>TeamUsers#index</h1>
+<p>Find me in app/views/team_users/index.html.erb</p>
+
+<h2>パターン1</h2>
+
+<% @teams.each do |team| %>
+	<%= team.id %>
+
+	<!-- <%= link_to '招待', team_users_new_path %> -->
+
+
+	<%= link_to 'no', controller: 'team_users', action: 'new',
+            team_id: team.id, invited_id: current_user.id %> 
+<% end %>
+
+<h2>パターン2</h2>
+
+
+
