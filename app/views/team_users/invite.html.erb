@@ -1,0 +1,35 @@
+invite.html.erb
+<div class="container">
+	<div class="panel panel-default">
+	<div class="panel-heading">
+		チームを検索（チームキーを入力してください）
+	    
+	    <div class="pull-right">
+	        <div class="btn-group">
+				<%= form_tag invite_to_team_path, :method => 'get' do %> 
+				  <p>
+				    <%= text_field_tag :search, params[:search] %>
+				    <%= submit_tag "Search", :name => nil %>
+				  </p>
+				<% end %>
+
+				<%# @users.each do |user| %>
+					<%#= user.id %>
+				<%# end %>
+	        </div>
+	    </div>
+
+	</div>
+	<%# if @teams.presence %>
+	<%# @teams.each do |team| %>
+		<div class="col-6"><%#= team.name %></div>
+		<div class="col-6">
+			<%#= link_to 'apply', controller: 'team_users', action: 'create', team_id: team.id, status: 0 %>
+			<%#= link_to 'apply', team_users_path(team_id: team.id, status: 0), method: :post %>
+
+			</div>
+	<%# end %>
+	<%# end %>
+</div>
+
+<%= render 'partial/footer' %>

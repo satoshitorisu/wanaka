@@ -1,19 +1,37 @@
-<% if (user_signed_in?) %>
-　ログイン中：UserID ＝＞　<%= current_user.id %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-<% else %>
-	未ログイン
-<% end %>
-
-
-
-<hr>
-
-<h2>所属チーム</h2>
-	<% @teams.each do |team| %>
-		<%= team.id %>
+<% if  user_signed_in? %>
+	<% if @admin %>
+		<!-- サインインしている && 所属しているいずれかのグループで管理者-->
+		<%= render 'partial/view_for_admin' %>
+		<%= render 'partial/adminnavbar' %>
+	<% else %>
+		<!-- サインインしている && 所属しているいずれかのグループで管理者出ない-->
+		<br><br>
+		<%= render 'partial/navbar' %>
+		<%= render 'partial/view_for_signed' %>
+		<%#= render 'partial/footer' %>
 	<% end %>
+<% else %>
+	<!-- サインインしていない　-->
+	<%= render 'partial/view_for_unsigned' %>
+
+<% end %>
+<%= render 'partial/footer' %>
 
 
 
-<%= render 'partial/sitemap' %>
+<style type="text/css" media="screen">
+
+	.jumbotron {
+	    padding-top: 0px;
+	    background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6) ), url(images/boys-2769553_1920.jpg);
+    	/*background-image: url(/images/person-845325_1920.jpg);*/
+		background-size: cover;
+		background-position: 50% 50%;
+		height: 320px;
+		color: white;
+		margin-top: 56px;
+	}
+
+
+
+</style>

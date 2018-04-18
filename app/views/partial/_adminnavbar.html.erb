@@ -1,0 +1,37 @@
+
+<div class="footer">
+	<%= link_to(app_schedule_path, class: 'footer-item') do %>
+	    <div class="footer-item-icon">
+	    	<i class="far fa-calendar-alt"></i>
+	    </div>
+	    <div class="footer-item-text">Schedule</div>
+	<% end %>
+	<%= link_to(app_game_path, class: 'footer-item', data:{no_turbolink: true}) do %>
+	    <div class="footer-item-icon">
+	    	<i class="far fa-futbol"></i>
+	    </div>
+	    <div class="footer-item-text">Game</div>
+	<% end %>
+	<%= link_to(teams_path, class: 'footer-item') do %>
+	    <div class="footer-item-icon">
+	    	<i class="fas fa-users"></i>
+	    </div>
+	    <div class="footer-item-text">Team</div>
+	<% end %>
+	<%= link_to(app_message_path, class: 'footer-item', data:{no_turbolink: true}) do %>
+	    <div class="footer-item-icon">
+	    	<i class="far fa-comment-alt"></i>
+	    </div>
+	    <div class="footer-item-text">Message</div>
+	<% end %>
+
+	<%= link_to(app_profile_path, class: 'footer-item') do %>
+	    <div class="footer-item-icon">
+	    	<i class="far fa-address-card"></i>
+	    </div>
+	    <div class="footer-item-text">Menu</div>
+	<% end %>
+
+</div>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>

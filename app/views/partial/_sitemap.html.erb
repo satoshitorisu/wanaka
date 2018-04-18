@@ -1,30 +1,30 @@
 <hr>
 <ul>
 	<li>ユーザー管理</li>
-	<li>
-		<%= link_to 'log in', new_user_session_path %>
-	</li>
-	<li>
-		<%= link_to 'sign in', new_user_registration_path %>
-	</li>
-</ul>
+	<li><%= link_to 'log in', new_user_session_path %></li>
+	<li><%= link_to 'sign in', new_user_registration_path %></li>
+	<% if user_signed_in? %>
 
+	<% end %>
+</ul>
 <ul>
 	<li>チーム</li>
-	<li>
-		<%= link_to 'new', new_team_path %>
-	</li>
-	<li>
-		<%= link_to 'join from_leader', team_users_path %>
-	</li>
-	<li>
-		<%= link_to 'join from_member', team_users_path %>
-	</li>
+	<li><%= link_to 'index', teams_path %></li>
+	<li><%= link_to 'new', new_team_path %></li>
+	<li><%#= link_to 'join from_leader', offer_to_join_path %></li>
+	<li><%#= link_to 'join from_member', apply_to_team_path %></li>
+
 </ul>
 <ul>
 	<li>スケジュール</li>
-	<li><%= link_to 'index', schedules_path %></li>
-	<li><%= link_to 'new', new_schedule_path %></li>
+	<li><%= link_to 'manage', schedules_manage_path %></li>
+
+</ul>
+<hr>
+<ul>
+	<li>ゲームマッチング</li>
+	<li><%= link_to 'index' %></li>
+	<li><%= link_to 'new', new_game_path %></li>
 </ul>
 
 

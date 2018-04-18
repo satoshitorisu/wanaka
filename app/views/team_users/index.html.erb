@@ -1,19 +1,62 @@
 <h1>TeamUsers#index</h1>
-<p>Find me in app/views/team_users/index.html.erb</p>
-
-<h2>パターン1</h2>
-
-<% @teams.each do |team| %>
-	<%= team.id %>
-
-	<!-- <%= link_to '招待', team_users_new_path %> -->
-
-
-	<%= link_to 'no', controller: 'team_users', action: 'new',
-            team_id: team.id, invited_id: current_user.id %> 
-<% end %>
-
-<h2>パターン2</h2>
 
 
 
+<h2>管理チーム一覧</h2>
+<div class="container">
+  <div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Header</th>
+        <th>Header</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @team_users.each do |team_users| %>
+      <tr>
+          <td><%= team_users.team.name %></td>
+          <td><%= team_users.team.name %></td>
+          <td><%= link_to '招待', controller: 'team_users', action: 'new',
+                    team_id: team_users.id, invited_id: current_user.id %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+  <div class="ticket-box-attendance btn-grou">
+    <button class="btn btn-primary ticket-box-attendance-item">招待</button>
+    <button class="btn btn-secondary ticket-box-attendance-item">編集</button>
+  </div>
+
+
+
+</div>
+
+
+
+<style type="text/css" media="screen">
+
+  .ticket-box-attendance{
+    padding-top: 5px;
+    width: 100%;
+    height: 50px;
+    /*background-color: yellow;*/
+
+
+    display: table;
+    table-layout: fixed;
+    text-align: center;
+    width: 100%;
+
+  }
+
+
+  .ticket-box-attendance-item{
+    display: table-cell;
+    vertical-align: middle;
+    width: 30%;
+    margin-left: 8px;
+  }
+</style>

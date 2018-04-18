@@ -1,8 +1,100 @@
-<h1>Schedules#new</h1>
-<p>Find me in app/views/schedules/new.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="text-center">
+						<span style="font-size:24px;">スケジュール登録</span>
+					</div>
+					<hr>
+				</div>
 
-<%= form_for @schedule do |f| %>
-	<%= f.text_field :name %>
-	<%= f.text_field :place %>
-	<%= f.submit 'submit' %>
-<% end %>
+				<div class="container">
+					<div class="panel-body text-center">
+						<br>
+						<!-- ここからフォーム -->
+						<%= form_for @schedule do |f| %>
+							<% if  @admin_team_flag %>
+								<div class="row">
+									<div class="col-md-12 select">
+										<div class="form-group">
+											<%= f.label :チーム %>
+											<%= f.select :team_id, @admin_teams.map{|t| [t.team.name, t.id]} , {prompt:"チームを選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+										</div>
+									</div>
+								</div>
+								<br>
+							<% else %>
+
+							<% end %>
+							<div class="row">
+								<div class="col-md-12 select">
+									<div class="form-group">
+										<%= f.label :name,  "タイトル"%>
+							        	<%= f.text_field :name ,:class => 'form-control',:placeholder => "チームとの練習試合、等", autofocus: true ,required: 'true'%>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-md-12 select">
+									<div class="form-group">
+										<%= f.label :place,  "場所"%>
+							        	<%= f.text_field :place ,:class => 'form-control',:placeholder => "未定の場合は、未入力可。", autofocus: true%>
+									</div>
+								</div>
+							</div>
+
+							<br>
+							<hr>
+							<br>
+							<div class="row">
+								<div class="col-md-12 select">
+									<div class="form-group">
+										<%= f.label :datetime,  "開始時間"%><br>
+							        	<%= f.datetime_select :datetime ,:class => 'form-control'%>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-md-12 select">
+									<div class="form-group">
+										<%= f.label :datetime,  "終了時間"%><br>
+							        	<%= f.datetime_select :datetime ,:class => 'form-control'%>
+									</div>
+								</div>
+							</div>
+
+							<br>
+							<hr>
+							<br>
+							<div class="row">
+								<div class="col-md-12 select">
+									<div class="form-group">
+										<%= f.label :remark,  "連絡事項"%>
+							        	<%= f.text_area :remark ,:class => 'form-control',:placeholder => "連絡事項等を入力してください", autofocus: true ,required: 'true' %>
+									</div>
+								</div>
+							</div>
+							<br>
+
+							<div class="row">
+								<div class="col-6">
+									<%= f.submit "登録", class: "btn btn-danger btn-block btn-lg" %>
+								</div>
+								<div class="col-6">
+									<%= link_to "戻る" ,root_path, class: "btn btn-secondary btn-block btn-lg" %>
+								</div>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%= render 'partial/footer' %>
+
+
+

@@ -1,0 +1,70 @@
+	<div class="jumbotron">
+		<%= render 'partial/navbar' %>
+	  <div class="container">
+	   <div class="row">
+	     <div class="col-md-6 col-md-offset-3 text-center">
+	       <h1 class="display-3">Hello, world!</h1>
+	     </div>
+	   </div>
+	  </div>
+	</div>
+
+    <div class="row" style="background-color: #ECEFF1; height: 300px;">
+		<div class="col-12 top-menu">What's Wanaka?</div>
+		<!-- <div class="col-12 top-menu-border"></div> -->
+
+      <div class="col-md-6 offset-md-3" style="text-align: center; font-size: 12px; padding: 0 40px;">
+      	<p style="font-size: 16px;">Wanakaとは、チームを管理するための新しいサービスです。<br></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+     <!-- Three columns of text below the carousel -->
+     <br>
+     <br>
+    <div class="row">
+		<div class="col-12 top-menu">Feature</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<!-- <div class="col-12 top-menu-border"></div> -->
+
+      <div class="col-lg-4" style="text-align: center; font-size: 12px; padding: 0 40px;">
+        <img class="rounded" src="images/hierarchical-structure.png" alt="" width="140" height="140">
+        <h2 style="font-size: 24px; margin: 20px 20px">チーム管理</h2>
+        <p>XXX</p>
+        <br>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4" style="text-align: center; font-size: 12px; padding: 0 40px;">
+        <img class="rounded" src="images/clipboard.png" alt="" width="140" height="140">
+        <h2 style="font-size: 24px; margin: 20px 20px">出席管理</h2>
+        <p>XXX</p>
+        <br>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4" style="text-align: center; font-size: 12px; padding: 0 40px;">
+        <img class="rounded-circle" src="images/deal.png" alt="" width="140" height="140">
+
+        <h2 style="font-size: 24px; margin: 20px 20px;">MatchMaking</h2>
+        <p>XXX</p>
+        <br>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+
+    <div class="row" style="background-color: #ECEFF1; height: 300px;">
+		<div class="col-12 top-menu">Join?</div>
+		<!-- <div class="col-12 top-menu-border"></div> -->
+		<br>
+
+		<%= link_to(new_user_registration_path) do %>
+			<div class="col-md-6 offset-md-3" style="text-align: center; font-size: 12px; padding: 0 40px;">
+				<button class="btn btn-info" style="width: 200px; height: 60px;">会員登録</button>
+			</div>
+		<% end %>
+		<%= link_to(new_user_session_path) do %>
+			<div class="col-md-6 offset-md-3" style="text-align: center; font-size: 12px; padding: 0 40px;">
+				<button class="btn btn-primary" style="width: 200px; height: 60px;">ログイン</button>
+			</div><!-- /.col-lg-4 -->
+		<% end %>
+	</div><!-- /.row -->

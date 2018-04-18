@@ -1,0 +1,96 @@
+edit.html.erb
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="text-center">
+						<span style="font-size:24px;">チームを登録する</span>
+					</div>
+					<hr>
+				</div>
+				<div class="panel-body text-center">
+					<!-- ここからフォーム -->
+					<%= form_for @team do |f| %>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<%= f.label :name,  "チーム名"%>
+						        	<%= f.text_field :name ,:class => 'form-control',:placeholder => "チーム○○○	", autofocus: true ,required: 'true'%>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<%= f.label :active_place,  "主な活動地域"%>
+						        	<%= f.text_field :active_place ,:class => 'form-control',:placeholder => "東京/渋谷区/千駄ケ谷/etc．", autofocus: true ,required: 'true' %>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<%= f.label :organization,  "組織体"%>
+						        	<%= f.text_field :organization ,:class => 'form-control',:placeholder => "学校名/会社名/etc.", autofocus: true ,required: 'true'%>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<%= f.label :レベル %>
+									<%= f.select :level, [["Lv.1 初心者","Lv.1 初心者"], ["Lv.2 初心者＋","Lv.2 初心者＋"], ["Lv.3 中級者","Lv.3 中級者"], ["Lv.4 中級者＋","Lv.4 中級者＋"], ["Lv.5 上級者","Lv.5 上級者"], ["Lv.6 上級者＋","Lv.6 上級者＋"], ["Lv.7 プロ級","Lv.7 プロ級"]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<%= f.label :description,  "紹介文"%>
+						        	<%= f.text_area :description ,:class => 'form-control',:placeholder => "紹介文を書いてください。", autofocus: true %>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<%= f.label :image,  "画像"%>
+						        	<%= f.attachment_field :image ,:class => 'form-control', autofocus: true %>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<%= f.label :team_key,  "チームキー"%>
+						        	<%= f.text_field :team_key ,:class => 'form-control', readonly: true, autofocus: true %>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-sm-6">
+								<%= f.submit "更新", class: "btn btn-danger btn-block btn-lg" %>
+							</div>
+							<div class="col-sm-6">
+								<%= link_to "戻る" ,root_path, class: "btn btn-secondary btn-block btn-lg" %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<%= render 'partial/footer' %>	
+
+

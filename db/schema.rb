@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_12_071441) do
+ActiveRecord::Schema.define(version: 2018_04_17_052033) do
+
+  create_table "games", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "datetime"
+    t.string "place"
+    t.string "level"
+    t.string "price"
+    t.text "remark"
+    t.integer "team_id"
+    t.string "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.string "closer_station"
+    t.index ["team_id"], name: "index_games_on_team_id"
+  end
 
   create_table "models", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,12 +47,24 @@ ActiveRecord::Schema.define(version: 2018_04_12_071441) do
     t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
   end
 
+  create_table "schedule_users", force: :cascade do |t|
+    t.integer "schedule_id"
+    t.integer "user_id"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "schedules", force: :cascade do |t|
     t.string "name"
-    t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "place"
+    t.datetime "datetime"
+    t.text "remark"
+    t.integer "team_id"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["team_id"], name: "index_schedules_on_team_id"
   end
 
@@ -44,7 +74,7 @@ ActiveRecord::Schema.define(version: 2018_04_12_071441) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin"
-    t.boolean "join"
+    t.integer "status"
     t.index ["team_id"], name: "index_team_users_on_team_id"
     t.index ["user_id"], name: "index_team_users_on_user_id"
   end
@@ -53,6 +83,17 @@ ActiveRecord::Schema.define(version: 2018_04_12_071441) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "sport"
+    t.string "active_place"
+    t.string "organization"
+    t.string "level"
+    t.text "description"
+    t.boolean "active"
+    t.string "image_id"
+    t.string "team_key"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "picture"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,6 +111,10 @@ ActiveRecord::Schema.define(version: 2018_04_12_071441) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "first_name_kana"
+    t.string "last_name_kana"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

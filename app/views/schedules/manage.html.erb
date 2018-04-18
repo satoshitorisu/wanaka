@@ -1,0 +1,14 @@
+<h1>Schedules#manage</h1>
+<p>Find me in app/views/schedules/manage.html.erb</p>
+
+
+<ul>
+	<% @teamusers.each do |team| %>
+		<li>
+			<%= team.id %>|
+			<%= link_to 'add', new_schedule_path(team_id: team.id) %>
+
+		</li>
+
+	<% end %>
+</ul>

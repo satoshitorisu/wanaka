@@ -1,37 +1,36 @@
 class TeamUsersController < ApplicationController
   def index
-  	# @users = User.all
-  	@teams = TeamUser.where(user_id: current_user.id, admin: true)
-  	# debugger
+    # debugger
+  	@team_users = TeamUser.where(user_id: current_user.id, admin: true)
   end
-  def invitate
-  	
-  end
+  
   def new
   	@team_user = TeamUser.new
-  	@team_id = params[:team_id]
-  	# @team_user.user_id = params[:team_id]
-
-  	# @team_user.save
-  	# @team_user = TeamUser.new(:team_id => team_id ,:user_id => user_id, :join => 0, :admin => 0)
-
+    @team_id = params[:team_id]
+    status = params[:status]
+    # debugger
   end
 
-
   def create
-  	@create_team_user = TeamUser.new(team_params)
-  	@create_team_user.team_id = params[:team_id]
-  	# debugger
-	if @create_team_user.save
-  	# debugger
-		redirect_to team_users_path
-	else
-		redirect_to :back
-	end
+    @team = TeamUser.new
+    @team.team_id = params[:team_id]
+    @team.user_id = current_user.id
+    @team.admin = 0
+    @team.status = params[:status]
+    @team.save
+    redirect_to root_path
+  end
+
+  def apply
+    @teams = Team.search(params[:search])
+  end
+
+  def invite
+      @teams = Team.search(params[:search])
   end
 
   private
   def team_params
-  	params.require(:team_user).permit(:team_id, :user_id)
+  	params.require(:team_user).permit(:team_id, :user_id, :remark)
   end
 end

@@ -1,0 +1,16 @@
+join.html.erb
+
+<%= form_tag team_join_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+
+<% @teams.each do |team| %>
+	<p>
+		<%= team.name %>|
+		<%= link_to '参加', controller: "team_users", action: "create", team_id: team.id,status: 1 %>
+	</p>
+<% end %>
